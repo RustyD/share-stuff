@@ -1,0 +1,2 @@
+share-stuff,,     # Defaults of '0' for the origins.txt file index and 'master' for the merge branch
+
