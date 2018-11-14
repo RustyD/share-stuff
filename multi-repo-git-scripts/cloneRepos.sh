@@ -2,14 +2,14 @@
 
 function _execute_git() {
 	if [ ! -d "${repos_parent_dir}/${repo_name}" ]; then
-	
+
 		local remote_origin="${origins[$remote_index]:?ERROR - file \'$origins_file\' does not have an entry on line $remote_index}"
 		local remote_repo_url="${remote_origin}${repo_name}.git"
-		
+
 		echo
 		echo "*** Repository ${remote_repo_url} ***"
 		git clone "${remote_repo_url}"
-		
+
 		local status=$?
 		if [ $status -eq 0 ]; then
 			echo

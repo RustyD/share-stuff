@@ -8,15 +8,17 @@ function _execute_git() {
 
 		echo
 		echo "*** Repository ${repo_name} ***"
-		git fetch --all
+		mvn clean install
 
 		local status=$?
 		if [ $status -eq 0 ]; then
 			echo 
 		else
 			echo
-			echo "### Failed to fetch ${repo_name}"
+			echo "### Failed to 'mvn clean install' ${repo_name}"
 			echo
+			cd "${original_dir}"
+			exit 1			
 		fi
 
 	else

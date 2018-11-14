@@ -5,11 +5,11 @@ function _execute_git() {
 	if [ -d "${repos_parent_dir}/${repo_name}"  ]; then
 
 		cd "${repos_parent_dir}/${repo_name}"
-		
+
 		echo
 		echo "*** Repository ${repo_name} ***"
 		git status
-		
+
 		local status=$?
 		if [ $status -eq 0 ]; then
 			echo 
@@ -18,13 +18,13 @@ function _execute_git() {
 			echo "### Failed to 'status' ${repo_name}"
 			echo
 		fi
-	
+
 	else
 		echo	
-		echo "### Repository ${repos_parent_dir}/${repo_name} has not been cloned."
+		echo "### Folder (local repository) ${repos_parent_dir}/${repo_name} does not yet exist."
 		echo	
 	fi
-	
+
 }
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"

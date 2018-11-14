@@ -8,21 +8,23 @@ function _execute_git() {
 
 		echo
 		echo "*** Repository ${repo_name} ***"
-		git fetch --all
+		git reset --hard
 
 		local status=$?
 		if [ $status -eq 0 ]; then
-			echo 
+			echo
 		else
 			echo
-			echo "### Failed to fetch ${repo_name}"
+			echo "### Failed to reset' ${repo_name}"
 			echo
+			cd "${original_dir}"
+			exit 1
 		fi
 
 	else
-		echo	
+		echo
 		echo "### Folder (local repository) ${repos_parent_dir}/${repo_name} does not yet exist."
-		echo	
+		echo
 	fi
 
 }
